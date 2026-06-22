@@ -65,6 +65,7 @@
     <nav>
       <a href="#about">about</a>
       <a href="#systems">systems</a>
+      <a href="#roadmap">roadmap</a>
       <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener" class="nav-cta">wishlist</a>
     </nav>
   </header>
@@ -210,6 +211,75 @@
       </div>
     </section>
 
+    <!-- ─── ROADMAP ────────────────────────────────────────────────────── -->
+    <!--
+      Public-facing distillation of docs/ROADMAP.md from the (private) game
+      repo. The internal roadmap is engineering-grade (tickets, ADRs,
+      milestone audits); this is the player-facing translation. Update by
+      editing this section directly when a column item meaningfully ships
+      OR slides forward — it's the only place to touch.
+    -->
+    <section id="roadmap" class="block">
+      <div class="block-head">
+        <span class="section-num">§04</span>
+        <h2>Roadmap</h2>
+      </div>
+      <p class="block-intro">
+        Early Access by definition means the roadmap will shift. The columns
+        below are honest about <em>what's in the build right now</em>,
+        <em>what's actively being worked</em>, and <em>what the design is
+        committed to but not yet built</em>. A wishlist is the best way to get
+        a heads-up when each column moves.
+      </p>
+
+      <div class="grid three roadmap">
+        <div class="roadmap-col">
+          <div class="roadmap-status shipping">SHIPPING</div>
+          <h3>In the build</h3>
+          <ul>
+            <li>Timed city levels with retry-on-fail</li>
+            <li>Hammer click → damage on issues</li>
+            <li>Apprentices + generators (idle assist)</li>
+            <li>Specs (in-run) + Permits (meta) currencies</li>
+            <li>City board, HUD, and save/load</li>
+            <li>Prestige foundation (Submit for Peer Review)</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-col">
+          <div class="roadmap-status building">BUILDING</div>
+          <h3>In development now</h3>
+          <ul>
+            <li>Balance pass — playtest tuning of timer × HP × difficulty</li>
+            <li>Save/load polish + verification</li>
+            <li>Full prestige loop with PE Stamps + multipliers</li>
+            <li>Real structural-analysis engine (replaces placeholder issues)</li>
+            <li>First polish + juice pass on the click</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-col">
+          <div class="roadmap-status designed">DESIGNED</div>
+          <h3>Coming during Early Access</h3>
+          <ul>
+            <li>The Architects — boss fights as design reviews</li>
+            <li>Skill tree expansion (branches + capstones)</li>
+            <li>Toolbelt — unlockable tools that gate new districts</li>
+            <li>Story beats + lore codex + achievements</li>
+            <li>Full audio pass</li>
+            <li>Art pass — visual identity polish, character work</li>
+            <li>Steam Cloud + Steam achievements integration</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="roadmap-foot">
+        Beyond 1.0, the experimental track: <em>an AlphaZero-style automated
+        playtester</em> that finds balance exploits faster than humans can.
+        It's already partly running against the dev sim.
+      </p>
+    </section>
+
     <!-- ─── CTA STRIP ──────────────────────────────────────────────────── -->
     <section class="cta-strip">
       <div class="cta-strip-inner">
@@ -229,12 +299,10 @@
     <div class="foot-inner">
       <div>
         <span class="brand-small">Load Bearing</span>
-        <span class="muted"> · made by <a href="https://github.com/mscrnt" target="_blank" rel="noopener">mscrnt</a> · built in Godot 4.4.1</span>
+        <span class="muted"> · made by mscrnt · built in Godot 4.4.1</span>
       </div>
       <div class="foot-links">
         <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">Steam</a>
-        <span class="dot">·</span>
-        <a href="https://github.com/mscrnt/loadbearing" target="_blank" rel="noopener">GitHub</a>
         <span class="dot">·</span>
         <a href="mailto:hello@loadbearing.games">contact</a>
       </div>

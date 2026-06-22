@@ -360,6 +360,72 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
 }
 .card p { margin: 0; font-size: 0.96rem; color: var(--ink); }
 
+/* ─── roadmap ────────────────────────────────────────────────────────── */
+.block-intro {
+  max-width: 52em;
+  color: var(--ink);
+  font-size: 1.02rem;
+  margin: -1rem 0 2.25rem;
+}
+
+.roadmap-col {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  padding: 1.25rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.roadmap-status {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 0.2em 0.6em;
+  border: 1px solid currentColor;
+  margin-bottom: 0.9rem;
+}
+.roadmap-status.shipping  { color: var(--stamp); border-style: solid;  }
+.roadmap-status.building  { color: var(--ink);   border-style: solid;  }
+.roadmap-status.designed  { color: var(--ink-muted); border-style: dashed; }
+
+.roadmap-col h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 0.85rem;
+}
+.roadmap-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+.roadmap-col li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed var(--ink-faint);
+  position: relative;
+  padding-left: 1.1rem;
+}
+.roadmap-col li:last-child { border-bottom: none; }
+.roadmap-col li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--stamp);
+  font-weight: 700;
+}
+
+.roadmap-foot {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  max-width: 60em;
+}
+
 /* ─── CTA strip ──────────────────────────────────────────────────────── */
 .cta-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
 .cta-strip-inner {
