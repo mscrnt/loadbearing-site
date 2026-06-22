@@ -135,6 +135,35 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   border-left: 2px solid var(--stamp);
   padding-left: 0.65rem;
 }
+/* Small inline "EARLY ACCESS" pill — sits in the eyebrow line, leans on
+ * the existing stamp red so it reads as the same brand mark. */
+.ea-tag {
+  display: inline-block;
+  background: var(--stamp);
+  color: var(--ink);
+  padding: 0.15em 0.55em;
+  margin-right: 0.5em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border-radius: 1px;
+}
+
+/* "on the roadmap" pill that rides next to a card heading — flag for
+ * anything we're showing the design intent of, but haven't shipped. */
+.card-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5em;
+  padding: 0.1em 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  border: 1px dashed var(--stamp);
+  border-radius: 1px;
+}
 
 .hero h1 {
   font-family: var(--font-display);
