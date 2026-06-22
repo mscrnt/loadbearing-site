@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e2540">
+  <meta name="description" content="Load Bearing privacy policy — what's collected, why, how to opt out. Telemetry is opt-in only and contains no PII.">
+  <meta name="robots" content="index,follow">
+  <title>Privacy Policy — Load Bearing</title>
+  <link rel="canonical" href="https://loadbearing.games/privacy">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <svg class="grid-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      </pattern>
+      <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#minor)"/>
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.75"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#major)"/>
+  </svg>
+
+  <header class="top">
+    <div class="wordmark">
+      <a href="/" style="text-decoration:none;color:inherit;display:inline-flex;align-items:baseline;gap:0.4rem">
+        <span class="bracket">[</span><span class="brand">Load Bearing</span><span class="bracket">]</span>
+      </a>
+      <span class="rev">// privacy policy · effective 2026-06-22</span>
+    </div>
+    <nav>
+      <a href="/">home</a>
+      <a href="/terms.html">terms</a>
+      <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener" class="nav-cta">wishlist</a>
+    </nav>
+  </header>
+
+  <main class="legal-doc">
+    <h1>Privacy Policy</h1>
+
+    <p class="legal-stamp">EFFECTIVE 2026-06-22 · APPLIES TO LOADBEARING.GAMES AND THE LOAD BEARING GAME (STEAM APP 4883800)</p>
+
+    <h2>The short version</h2>
+    <p>
+      Load Bearing is a single-player game. It is <strong>fully playable offline</strong>.
+      If — and only if — you opt in, the game sends anonymous gameplay telemetry to a
+      server we run ourselves. <strong>No personal information is ever collected</strong>:
+      no name, no email, no IP, no Steam ID, no machine identifier, no save filename, no
+      text you type. You can opt out at any time. Opt-out is the default.
+    </p>
+
+    <h2>Who runs this</h2>
+    <p>
+      "Load Bearing", loadbearing.games, and the Steam release are operated by
+      <strong>mscrnt</strong> (the "developer"). Contact:
+      <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a>.
+    </p>
+
+    <h2>What the website (loadbearing.games) collects</h2>
+    <p>
+      <strong>Nothing.</strong> The site is a static page hosted on Cloudflare Pages. It
+      sets no cookies, has no analytics scripts, embeds no third-party trackers, and runs
+      no JavaScript that contacts other services. Cloudflare may keep edge-level request
+      logs (IP, user-agent, URL) as part of its standard DDoS/abuse protection — those
+      logs are governed by
+      <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's own privacy policy</a>
+      and the developer does not access or retain them.
+    </p>
+
+    <h2>What the game collects — only if you opt in</h2>
+    <p>
+      On first launch you'll see a clear, plain-language consent prompt. It defaults to
+      <strong>OFF</strong>. If — and only if — you choose to opt in, the game records
+      gameplay events and periodically uploads them in batches to a server we operate.
+    </p>
+    <p>Each event carries:</p>
+    <ul>
+      <li>The <strong>event type</strong> (e.g. "map_attempt", "session_start", "node_bought").</li>
+      <li>An ISO timestamp.</li>
+      <li>The <strong>game version</strong> and the <strong>balance version</strong> currently running.</li>
+      <li>Three random <strong>anonymous UUIDs</strong>: one per install ("anon_id"), one per launch ("session_id"), one per run ("run_id"). These are generated locally with no relationship to your identity, your operating system account, or your Steam account. We do not back them up to the cloud, and they are not synced across devices or reinstalls.</li>
+      <li>Per-event <strong>gameplay properties</strong> — things like map index, attempt count, outcome, time to clear, clicks-per-second aggregates, currency earned/spent. The full list of event types and their properties is published in our open
+        <a href="https://github.com/mscrnt/loadbearing-site/blob/main/privacy.html" target="_blank" rel="noopener">privacy notice on this site</a>; we will update it as new event types are added during Early Access.</li>
+    </ul>
+    <p>What we <strong>do not</strong> collect, ever:</p>
+    <ul>
+      <li>Your name, email, address, phone number, or any account identifier.</li>
+      <li>Your IP address. The ingest server is explicitly configured to drop any client IP, User-Agent, and proxy header before storage.</li>
+      <li>Your Steam ID, Discord ID, or any social-platform identifier.</li>
+      <li>Your operating-system username, machine name, hardware fingerprint, save-file name, or any string you type in-game.</li>
+      <li>Anything outside the in-game gameplay loop. We do not read other files, monitor other applications, or do anything outside the game's own sandbox.</li>
+    </ul>
+
+    <h2>Why we collect it</h2>
+    <p>
+      The single purpose is <strong>game balance</strong> — the difficulty curve, where
+      players quit, which builds win, whether a balance patch helped or hurt. Real-player
+      data is the only way to validate that the game is fun at scale; without it, every
+      balance change is a guess. The data is never used for advertising, never sold,
+      never shared with third parties, and never used to identify anyone.
+    </p>
+
+    <h2>Where it's stored and how long</h2>
+    <p>
+      Events flow through a Cloudflare Tunnel to a Vector ingest service to a ClickHouse
+      database. <strong>All three run on hardware the developer owns and physically
+      controls.</strong> No third-party data processors are involved. Events are kept for
+      a maximum of <strong>13 months</strong>, after which they are automatically deleted
+      by a retention policy in the database. We may aggregate the data into anonymous
+      summaries (e.g. "average attempts to clear map 7 in version 0.4.x") and keep those
+      aggregates indefinitely — the aggregates contain no per-player rows.
+    </p>
+
+    <h2>How to opt out</h2>
+    <p>
+      In the game, open <em>Settings → Privacy → Telemetry</em>. Set the switch to OFF.
+      The game will immediately stop collecting events, drop any queued events not yet
+      sent, and abort any upload in flight. The next launch will respect the OFF setting.
+    </p>
+    <p>
+      If you want past events that were sent under your install's anon ID forgotten:
+      because the data is fully anonymous and not keyed to anything we can re-identify,
+      we cannot reliably delete "your" rows on request. You can, however, flip opt-out
+      and delete the game's user-data folder (which deletes your "anon_id"); from that
+      moment, no new events are linkable to you. Email
+      <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a> for help.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      Depending on where you live (GDPR in the EU/UK, CCPA in California, similar laws
+      elsewhere), you have rights including access, correction, deletion, and consent
+      withdrawal. Because we collect no personally identifying data, most of these
+      rights are satisfied by the opt-out switch above. For anything else, email
+      <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a> and we will
+      respond within 30 days.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      Load Bearing is not directed at children under 13 (or under 16 in jurisdictions
+      where that's the relevant age). The telemetry consent prompt is plain language, but
+      we do not knowingly collect data from children. If you believe a child has opted in
+      to telemetry on your device, email us and we'll explain how to clear the local
+      anon_id.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If the data we collect or the way we handle it changes, we will update this page
+      and bump the "effective" date at the top. For material changes (adding a new event
+      type, changing retention, anything new), the game's consent prompt will re-trigger
+      so you can re-confirm.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a>
+    </p>
+
+    <p class="legal-fine">
+      This policy is written by the developer in plain language for honesty over legalese.
+      It is not legal advice. If you need a binding interpretation, consult a lawyer
+      qualified in your jurisdiction.
+    </p>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <div class="foot-inner">
+      <div>
+        <span class="brand-small">Load Bearing</span>
+        <span class="muted"> · made by mscrnt · built in Godot 4.4.1</span>
+      </div>
+      <div class="foot-links">
+        <a href="/">home</a>
+        <span class="dot">·</span>
+        <a href="/privacy.html">privacy</a>
+        <span class="dot">·</span>
+        <a href="/terms.html">terms</a>
+        <span class="dot">·</span>
+        <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">Steam</a>
+        <span class="dot">·</span>
+        <a href="mailto:hello@loadbearing.games">contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
