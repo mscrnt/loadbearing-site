@@ -1,0 +1,11 @@
+# local dev junk
+.DS_Store
+*.log
+*.swp
+.vscode/
+.idea/
+
+# accidental
+node_modules/
+dist/
+*.bak

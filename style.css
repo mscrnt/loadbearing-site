@@ -1,0 +1,380 @@
+/* ───────────────────────────────────────────────────────────────────────
+ * Load Bearing — landing page
+ *
+ * Blueprint aesthetic per PRINCIPLES.md: white draftsman linework on
+ * blueprint-blue, ONE saturated red (the certified stamp). Everything is
+ * vector/procedural — no bitmaps, no hand-painted assets. The grid lives
+ * in index.html as an SVG <pattern> for infinite scale at zero asset cost.
+ *
+ * Typography: Iowan Old Style / Georgia for headings (draftsman-serif),
+ * a clean grotesque (Inter, ui-sans-serif) for body, JetBrains Mono /
+ * ui-monospace for the labels + spec lists.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+
+  /* blueprint palette */
+  --blueprint:        #0e2540;   /* primary background — deep draftsman blue */
+  --blueprint-2:      #143258;   /* lighter band for callouts */
+  --blueprint-3:      #1c426f;   /* hover/elevated */
+  --ink:              #f1f5f9;   /* draftsman white */
+  --ink-muted:        #aeb8c4;   /* faded ink */
+  --ink-faint:        rgba(241,245,249,0.18);
+  --line:             rgba(241,245,249,0.28);
+  --line-strong:      rgba(241,245,249,0.55);
+
+  /* the one saturated red — used only on the stamp + primary CTA */
+  --stamp:            #d63837;
+  --stamp-hover:      #ef4744;
+
+  --max-w:            1100px;
+  --gutter:           clamp(1rem, 3vw, 2rem);
+
+  --font-display:     "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body:        Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:        ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--blueprint);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection { background: var(--stamp); color: var(--ink); }
+
+/* ─── Blueprint grid (full-bleed SVG, fixed so it doesn't scroll) ───── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ─── header / top nav ──────────────────────────────────────────────── */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem var(--gutter);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+.wordmark .bracket { color: var(--ink-muted); }
+.wordmark .brand   { font-weight: 700; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.wordmark .rev     { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-muted); margin-left: 0.6rem; letter-spacing: 0.05em; }
+
+.top nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.top nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.top nav a:hover { color: var(--ink); border-bottom-color: var(--line-strong); }
+.top nav a.nav-cta {
+  color: var(--stamp);
+  border-bottom-color: var(--stamp);
+}
+.top nav a.nav-cta:hover { color: var(--stamp-hover); border-bottom-color: var(--stamp-hover); }
+
+/* ─── main layout ────────────────────────────────────────────────────── */
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+
+/* ─── hero ───────────────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+  .stamp { max-width: 60vw; margin: 0 auto; display: block; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 1.25rem;
+  border-left: 2px solid var(--stamp);
+  padding-left: 0.65rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.01em;
+}
+.hero h1 .strike {
+  position: relative;
+  display: inline-block;
+}
+.hero h1 .strike::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 55%;
+  height: 0.18em;
+  background: var(--stamp);
+  transform: rotate(-3deg);
+  border-radius: 1px;
+}
+
+.pitch {
+  font-size: 1.08rem;
+  max-width: 36em;
+  color: var(--ink);
+  margin: 0 0 2rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.2rem;
+}
+
+/* ─── primary CTA — looks like a red ink stamp / button frame ────────── */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--stamp);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  border: none;
+  transition: background 0.15s, transform 0.05s;
+}
+.btn-primary:hover { background: var(--stamp-hover); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary.big { padding: 1.15rem 1.9rem; font-size: 1rem; }
+.btn-primary .arrow { width: 16px; height: 16px; color: currentColor; }
+
+/* tiny corner brackets — draftsman frame */
+.btn-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.btn-corner.tl { top: -4px; left: -4px; border-right: none; border-bottom: none; }
+.btn-corner.tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }
+.btn-corner.bl { bottom: -4px; left: -4px; border-right: none; border-top: none; }
+.btn-corner.br { bottom: -4px; right: -4px; border-left: none; border-top: none; }
+
+/* ─── secondary CTA — outline, no fill ──────────────────────────────── */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.04); border-color: var(--ink); }
+.btn-secondary .arrow { width: 14px; height: 14px; color: currentColor; }
+
+/* ─── hero stamp art ─────────────────────────────────────────────────── */
+.hero-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stamp {
+  width: 100%;
+  max-width: 320px;
+  transform: rotate(-8deg);
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+}
+
+/* ─── block layout (about / systems) ─────────────────────────────────── */
+.block { border-top: 1px solid var(--line); }
+.block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+}
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+.block-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.grid { display: grid; gap: clamp(1.25rem, 3vw, 2rem); }
+.grid.two   { grid-template-columns: 1.2fr 1fr; }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 880px) { .grid.three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .grid.two, .grid.three { grid-template-columns: 1fr; }
+}
+
+.callout {
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.4rem;
+  background: rgba(255,255,255,0.025);
+}
+.callout-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin-bottom: 0.85rem;
+}
+.spec-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+.spec-list li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--ink-faint);
+}
+.spec-list li:last-child { border-bottom: none; }
+.spec-list .key { color: var(--ink-muted); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; align-self: center; }
+.spec-list .val { color: var(--ink); }
+
+/* ─── system cards ───────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  padding: 1.5rem 1.4rem 1.4rem;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s, background 0.15s;
+}
+.card:hover {
+  border-color: var(--line-strong);
+  background: rgba(255,255,255,0.04);
+}
+.card-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--stamp);
+  margin-bottom: 0.8rem;
+}
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.005em;
+}
+.card p { margin: 0; font-size: 0.96rem; color: var(--ink); }
+
+/* ─── CTA strip ──────────────────────────────────────────────────────── */
+.cta-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.cta-strip-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.cta-strip h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  margin: 0 0 1.75rem;
+  line-height: 1.35;
+}
+
+/* ─── footer ─────────────────────────────────────────────────────────── */
+footer {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+.foot-line { height: 1px; background: var(--line); margin-bottom: 1.5rem; }
+.foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1.2rem;
+}
+.brand-small { font-family: var(--font-display); font-size: 0.92rem; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; }
+.muted { color: var(--ink-muted); }
+footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink-faint); }
+footer a:hover { border-bottom-color: var(--ink); }
+.foot-links { display: inline-flex; align-items: center; gap: 0.7rem; }
+.dot { color: var(--ink-muted); }
+.foot-fineprint {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  max-width: 60em;
+  line-height: 1.5;
+}

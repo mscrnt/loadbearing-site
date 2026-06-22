@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e2540">
+  <meta name="description" content="Load Bearing — a satirical incremental clicker about the last licensed Professional Engineer, racing to fix collapsing cities the Architects' Guild banned math out of. Wishlist on Steam.">
+  <title>Load Bearing — the Architects' Guild banned math. You're the last engineer.</title>
+  <link rel="canonical" href="https://loadbearing.games/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Open Graph / Twitter Card — link preview on Discord/Twitter/iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Load Bearing">
+  <meta property="og:title" content="Load Bearing — the Architects' Guild banned math. You're the last engineer.">
+  <meta property="og:description" content="A satirical incremental clicker. Stamp calculations, hire apprentices, defeat Architects, rebuild the world one collapsing city at a time.">
+  <meta property="og:url" content="https://loadbearing.games/">
+  <meta property="og:image" content="https://loadbearing.games/favicon.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:alt" content="A red 'CERTIFIED' stamp on blueprint paper.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Load Bearing">
+  <meta name="twitter:description" content="A satirical incremental clicker. The Architects' Guild banned math; you're the last engineer.">
+  <meta name="twitter:image" content="https://loadbearing.games/favicon.svg">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Load Bearing",
+    "alternateName": "LoadBearing",
+    "description": "A satirical incremental clicker about the last licensed Professional Engineer, racing to fix collapsing cities one timed level at a time.",
+    "url": "https://loadbearing.games/",
+    "image": "https://loadbearing.games/favicon.svg",
+    "applicationCategory": "Game",
+    "applicationSubCategory": "Incremental clicker",
+    "operatingSystem": "Windows (Steam, pre-release)",
+    "gamePlatform": ["PC"],
+    "publisher": { "@type": "Organization", "name": "mscrnt" }
+  }
+  </script>
+</head>
+<body>
+  <!-- Blueprint grid background, drawn as SVG so it scales. -->
+  <svg class="grid-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      </pattern>
+      <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#minor)"/>
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.75"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#major)"/>
+  </svg>
+
+  <header class="top">
+    <div class="wordmark">
+      <span class="bracket">[</span><span class="brand">Load Bearing</span><span class="bracket">]</span>
+      <span class="rev">// rev 0.1.0 — pre-production</span>
+    </div>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#systems">systems</a>
+      <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener" class="nav-cta">wishlist</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ─── HERO ───────────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">CITY DRAFT №01 · "PORT MOMENT"</p>
+        <h1>
+          The Architects' Guild<br>
+          banned <span class="strike">math.</span><br>
+          You're the last engineer.
+        </h1>
+        <p class="pitch">
+          A satirical incremental clicker about the last licensed Professional Engineer,
+          working from a basement, racing to fix every collapsing city before its timer
+          runs out — stamping calculations, hiring apprentices, unlocking tools, and
+          defeating Architects in design reviews.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn-primary" href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">
+            <span class="btn-corner tl"></span>
+            <span class="btn-corner tr"></span>
+            <span class="btn-corner bl"></span>
+            <span class="btn-corner br"></span>
+            Wishlist on Steam
+            <svg viewBox="0 0 16 16" class="arrow" aria-hidden="true"><path d="M1 8h12M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a class="btn-secondary" href="#about">
+            Read the brief
+            <svg viewBox="0 0 16 16" class="arrow" aria-hidden="true"><path d="M8 2v12M4 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stamp art on the right. SVG, no bitmaps — on-brand $0 art budget. -->
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 280 280" class="stamp">
+          <defs>
+            <filter id="ink">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/>
+              <feDisplacementMap in="SourceGraphic" scale="1.5"/>
+            </filter>
+          </defs>
+          <g filter="url(#ink)">
+            <!-- Outer ring -->
+            <circle cx="140" cy="140" r="118" fill="none" stroke="#d63837" stroke-width="6"/>
+            <circle cx="140" cy="140" r="106" fill="none" stroke="#d63837" stroke-width="2"/>
+            <!-- Inner -->
+            <text x="140" y="120" text-anchor="middle" font-family="Iowan Old Style, Georgia, serif" font-size="36" font-weight="700" fill="#d63837" letter-spacing="6">CERTIFIED</text>
+            <text x="140" y="155" text-anchor="middle" font-family="Iowan Old Style, Georgia, serif" font-size="14" font-weight="400" fill="#d63837" letter-spacing="3">PROFESSIONAL ENGINEER</text>
+            <line x1="60" y1="170" x2="220" y2="170" stroke="#d63837" stroke-width="1"/>
+            <text x="140" y="195" text-anchor="middle" font-family="Iowan Old Style, Georgia, serif" font-size="13" fill="#d63837" letter-spacing="2">LIC. №01 · STATE OF NSPE</text>
+            <!-- Corner ticks for the rotational frame -->
+            <g stroke="#d63837" stroke-width="2">
+              <line x1="22" y1="140" x2="34" y2="140"/>
+              <line x1="246" y1="140" x2="258" y2="140"/>
+              <line x1="140" y1="22" x2="140" y2="34"/>
+              <line x1="140" y1="246" x2="140" y2="258"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ──────────────────────────────────────────────────────── -->
+    <section id="about" class="block">
+      <div class="block-head">
+        <span class="section-num">§02</span>
+        <h2>The pitch</h2>
+      </div>
+      <div class="grid two">
+        <div>
+          <p>
+            A near-future where aesthetics overpowered engineering rigor — first in
+            buildings, then in politics. The <em>Architects' Guild</em> controls the codes;
+            public works are failing. You're the last licensed Civil Engineer
+            (re-certified in secret by an underground order), working from a cluttered
+            basement in the city of <strong>Port Moment</strong>.
+          </p>
+          <p>
+            Each level is a timed city: a set of issues, a clock, and a hammer. Fix every
+            issue before the timer runs out, complete the city, advance to a bigger and
+            more broken one. The job never ends. <em>That's the joke.</em>
+          </p>
+        </div>
+        <div class="callout">
+          <div class="callout-label">DESIGN BRIEF</div>
+          <ul class="spec-list">
+            <li><span class="key">Genre</span><span class="val">Timed-level incremental clicker with idle assists</span></li>
+            <li><span class="key">Engine</span><span class="val">Godot 4.4.1 — typed GDScript, deterministic core</span></li>
+            <li><span class="key">Aesthetic</span><span class="val">Blueprint — white linework on draftsman blue, one saturated red</span></li>
+            <li><span class="key">Tone</span><span class="val">Dry, knowing, deadpan exhaustion</span></li>
+            <li><span class="key">Platform</span><span class="val">PC (Steam) — pre-release</span></li>
+            <li><span class="key">Monetization</span><span class="val">Premium · no IAP · no ads · no P2W</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SYSTEMS ────────────────────────────────────────────────────── -->
+    <section id="systems" class="block">
+      <div class="block-head">
+        <span class="section-num">§03</span>
+        <h2>Systems overview</h2>
+      </div>
+
+      <div class="grid three">
+        <div class="card">
+          <div class="card-num">01</div>
+          <h3>The hammer</h3>
+          <p>One cursor. One tool. Every swing lands with an <em>impact</em> — a clang, a debris burst, a damage number. Unlock multi-target, AoE, crit, and charge-up directly on the hammer instead of swapping tools.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">02</div>
+          <h3>Apprentices</h3>
+          <p>Autonomous units that fix issues alongside you. The apprentices <em>are</em> the in-game auto-clicker — more of them, faster of them. Drafting Table → Intern → Junior → Senior → BIM Cluster → AI Design Farm.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
+          <h3>Three currencies</h3>
+          <p><strong>Specs</strong> earned from hammering, spent in-run. <strong>Permits</strong> earned by completing a city, spent on permanent skills + tools. <strong>PE Stamps</strong> — prestige, earned on "Submit for Peer Review."</p>
+        </div>
+        <div class="card">
+          <div class="card-num">04</div>
+          <h3>Skill tree, three disciplines</h3>
+          <p><strong>Structural</strong> for click/stamp power. <strong>Geotech</strong> for generator multipliers. <strong>Environmental</strong> for between-city accrual. Capstones include <em>Fellow of ASCE</em>, <em>Department Chair</em>, <em>Tenure Track</em>.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">05</div>
+          <h3>The Architects</h3>
+          <p>Each high-profile antagonist is a parody of a real architecture movement. Boss fights are <em>design reviews</em> — affectionate-but-pointed at both professions.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">06</div>
+          <h3>Submit for Peer Review</h3>
+          <p>The prestige loop. Reset the run to permanent multipliers — your <em>PE Stamps</em> compound across runs. The bigger the citation, the bigger the next collapse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA STRIP ──────────────────────────────────────────────────── -->
+    <section class="cta-strip">
+      <div class="cta-strip-inner">
+        <h2>Wishlist on Steam — it's the single best thing you can do for an indie pre-launch.</h2>
+        <a class="btn-primary big" href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">
+          <span class="btn-corner tl"></span><span class="btn-corner tr"></span>
+          <span class="btn-corner bl"></span><span class="btn-corner br"></span>
+          Wishlist on Steam
+          <svg viewBox="0 0 16 16" class="arrow" aria-hidden="true"><path d="M1 8h12M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <div class="foot-inner">
+      <div>
+        <span class="brand-small">Load Bearing</span>
+        <span class="muted"> · made by <a href="https://github.com/mscrnt" target="_blank" rel="noopener">mscrnt</a> · built in Godot 4.4.1</span>
+      </div>
+      <div class="foot-links">
+        <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">Steam</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/mscrnt/loadbearing" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="mailto:hello@loadbearing.games">contact</a>
+      </div>
+    </div>
+    <div class="foot-fineprint">
+      © mscrnt · "Load Bearing", the Architects' Guild, and Port Moment are fictional and any
+      resemblance to a real licensed engineer drinking alone in a basement is coincidental.
+    </div>
+  </footer>
+</body>
+</html>

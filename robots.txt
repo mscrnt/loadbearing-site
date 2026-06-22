@@ -1,0 +1,48 @@
+# Load Bearing — marketing site
+#
+# Allow everything; nothing here is private. AI training crawlers blocked
+# (preserves the marketing copy as differentiated), AI live-search allowed
+# so answer engines can cite back to loadbearing.games.
+
+User-agent: *
+Allow: /
+
+# ── Block AI training scrapers ──────────────────────────────────────────
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# ── Allow AI live-search / answer-engine crawlers ───────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://loadbearing.games/sitemap.xml
