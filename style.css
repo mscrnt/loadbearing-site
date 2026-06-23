@@ -352,6 +352,20 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   color: var(--stamp);
   margin-bottom: 0.8rem;
 }
+/* Lucide icon paired with the card number — sits to the right of the num. */
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+.card-head .card-num { margin-bottom: 0; }
+.card-icon {
+  width: 1.4rem; height: 1.4rem;
+  color: var(--ink-muted);
+  opacity: 0.7;
+}
+.card:hover .card-icon { color: var(--ink); opacity: 1; }
 .card h3 {
   font-family: var(--font-display);
   font-size: 1.2rem;
