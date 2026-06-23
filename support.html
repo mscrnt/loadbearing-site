@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e2540">
+  <meta name="description" content="Load Bearing support — how to report bugs, find your log file, request a refund, and contact the developer.">
+  <meta name="robots" content="index,follow">
+  <title>Support — Load Bearing</title>
+  <link rel="canonical" href="https://loadbearing.games/support">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <svg class="grid-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      </pattern>
+      <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+        <rect width="100" height="100" fill="url(#minor)"/>
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.75"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#major)"/>
+  </svg>
+
+  <header class="top">
+    <div class="wordmark">
+      <a href="/" style="text-decoration:none;color:inherit;display:inline-flex;align-items:baseline;gap:0.4rem">
+        <span class="bracket">[</span><span class="brand">Load Bearing</span><span class="bracket">]</span>
+      </a>
+      <span class="rev">// support · early access</span>
+    </div>
+    <nav>
+      <a href="/">home</a>
+      <a href="/privacy.html">privacy</a>
+      <a href="/terms.html">terms</a>
+      <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener" class="nav-cta">wishlist</a>
+    </nav>
+  </header>
+
+  <main class="legal-doc">
+    <h1>Support</h1>
+
+    <p class="legal-stamp">EARLY ACCESS · ONE-DEVELOPER STUDIO · EMAIL-FIRST</p>
+
+    <h2>The short version</h2>
+    <p>
+      Pick the channel that fits your situation — bug tracker for known issues
+      and dupe-checking, Steam discussions for casual conversation, email for
+      anything private. Load Bearing is built and supported by one person
+      (mscrnt). There is no support phone line and no live chat, and I read
+      every message myself. Expect a reply within about a week during Early
+      Access, faster after 1.0.
+    </p>
+
+    <h2>Where to file</h2>
+    <p>Three channels, choose the one that fits:</p>
+    <ul>
+      <li>
+        <strong>GitHub Issues</strong> →
+        <a href="https://github.com/mscrnt/loadbearing-issues/issues" target="_blank" rel="noopener">github.com/mscrnt/loadbearing-issues</a>
+        <br>
+        Best for bug reports. Public, searchable, dupe-checkable — see if your
+        crash is already filed before writing a new one. Issue templates
+        prompt you for the fields I need (build, OS, repro). Requires a free
+        GitHub account.
+      </li>
+      <li>
+        <strong>Steam Community Hub</strong> →
+        <a href="https://steamcommunity.com/app/4883800/discussions/" target="_blank" rel="noopener">steamcommunity.com/app/4883800</a>
+        <br>
+        Best for general discussion, balance threads, "is anyone else seeing
+        this?" before formally filing. Uses your existing Steam account; no
+        extra signup. I read every thread but technical issues move faster on
+        GitHub.
+      </li>
+      <li>
+        <strong>Email</strong> →
+        <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a>
+        <br>
+        Best for anything private: refund coordination, sensitive bug reports,
+        anything you don't want public. Catch-all if the other two feel like
+        too much friction.
+      </li>
+    </ul>
+
+    <h2>Reporting a bug — what to include</h2>
+    <p>Copy this template into your email; it saves a round-trip:</p>
+    <ul>
+      <li><strong>Build:</strong> the version shown in the bottom-right of the main menu (e.g. <code>0.1.0&nbsp;·&nbsp;b1</code>).</li>
+      <li><strong>OS:</strong> Windows 10 / Windows 11 / macOS 14 / Ubuntu 22.04 / Steam Deck, etc.</li>
+      <li><strong>What happened:</strong> one or two sentences, plain language.</li>
+      <li><strong>What you expected to happen.</strong></li>
+      <li><strong>Steps to reproduce:</strong> "open the game → click X → wait Y seconds → crash." If it only happens sometimes, say so.</li>
+      <li><strong>Log file:</strong> attach it (see below). It's plain text; you can open it first if you want to check.</li>
+      <li><strong>Screenshot or short clip</strong> if the bug is visual.</li>
+    </ul>
+
+    <h2>Finding your log file</h2>
+    <p>
+      Easiest route: in-game, open <em>Settings → About → Open log folder</em>.
+      That opens the right directory for your OS. If that menu isn't available
+      in your build yet, the log lives here:
+    </p>
+    <ul>
+      <li><strong>Windows:</strong> <code>%APPDATA%\Load Bearing\logs\</code> — paste that into File Explorer's address bar.</li>
+      <li><strong>macOS:</strong> <code>~/Library/Application Support/Load Bearing/logs/</code> — in Finder, <em>Go → Go to Folder…</em> and paste it.</li>
+      <li><strong>Linux / Steam Deck:</strong> <code>~/.local/share/Load Bearing/logs/</code></li>
+    </ul>
+    <p>
+      The file you want is the most recent <code>godot.log</code>. It contains
+      gameplay events, errors, and timing info — no personal data, no IP, no
+      account info, nothing typed in-game. You can read it before attaching.
+    </p>
+
+    <h2>Common issues</h2>
+
+    <h3 style="font-family:var(--font-display);font-size:1.1rem;margin:1.5rem 0 0.4rem">Game won't launch</h3>
+    <p>
+      Update your graphics drivers — Godot 4 requires reasonably current GPU
+      drivers for Vulkan. On Windows, also try right-clicking the game in your
+      Steam library → <em>Properties → Installed Files → Verify integrity of
+      game files</em>. If it still won't start, email the log file from the path
+      above (it captures startup failures even when the window never opens).
+    </p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.1rem;margin:1.5rem 0 0.4rem">Save file looks wrong after an update</h3>
+    <p>
+      During Early Access, save format may change between builds. The game
+      auto-backs-up your previous save before any migration; check the
+      <code>saves/</code> folder next to <code>logs/</code> for a
+      <code>*.bak</code> file. If a migration ate something it shouldn't have,
+      send me the backup and tell me which build wrote it.
+    </p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.1rem;margin:1.5rem 0 0.4rem">Crash mid-run</h3>
+    <p>
+      The log file pinpoints these. Attach it, plus the time of day the crash
+      happened (so I can find it in the log) and roughly what you were doing
+      (which map, which upgrades, idle vs. active).
+    </p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.1rem;margin:1.5rem 0 0.4rem">Stuck on a map or balance feels wrong</h3>
+    <p>
+      Not a bug — but absolutely worth telling me about. Balance feedback is
+      the most useful thing you can send during Early Access. Map number,
+      attempts, what you tried, what felt unfair. The opt-in telemetry on the
+      <a href="/privacy.html">privacy page</a> also helps here, but a written
+      "I quit map 7 because…" is worth ten thousand data points.
+    </p>
+
+    <h2>Refunds</h2>
+    <p>
+      All refunds go through Steam, not through me — I cannot issue or block
+      refunds on a Steam sale. Steam's standard policy (under two hours played
+      and under 14 days since purchase) covers most cases automatically:
+    </p>
+    <p>
+      <a href="https://help.steampowered.com/en/wizard/HelpWithRefund" target="_blank" rel="noopener">
+        Request a refund on Steam →
+      </a>
+    </p>
+    <p>
+      If you're past the standard window because a bug blocked you from playing,
+      include that in your refund request to Steam and feel free to email me
+      separately — I can confirm the bug to Steam support if they ask.
+    </p>
+
+    <h2>Privacy</h2>
+    <p>
+      Sending a log file or screenshot is voluntary, and the data in those files
+      is gameplay-only — see the <a href="/privacy.html">privacy policy</a> for
+      the full list of what the game does and does not collect. If you're not
+      comfortable attaching a log, describe the issue and I'll see what I can do
+      without it.
+    </p>
+
+    <h2>Early Access reality check</h2>
+    <p>
+      Load Bearing is in Early Access. That means: things will break, balance
+      will shift, features will land on the roadmap before they land in the
+      game, and some bugs will take a while to fix because there's one developer
+      and a finite number of hours in a week. I will be honest with you about
+      what's a known issue, what's actively in progress, and what's a "yes but
+      not this month." Polite, specific bug reports get fixed first.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:hello@loadbearing.games">hello@loadbearing.games</a>
+    </p>
+
+    <p class="legal-fine">
+      This is a one-developer studio. Response times are best-effort, not
+      contractual. For binding terms see the <a href="/terms.html">Terms of
+      Use</a> and Steam's subscriber agreement.
+    </p>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <div class="foot-inner">
+      <div>
+        <span class="brand-small">Load Bearing</span>
+        <span class="muted"> · made by mscrnt · built in Godot 4.4.1</span>
+      </div>
+      <div class="foot-links">
+        <a href="/">home</a>
+        <span class="dot">·</span>
+        <a href="/support.html">support</a>
+        <span class="dot">·</span>
+        <a href="/privacy.html">privacy</a>
+        <span class="dot">·</span>
+        <a href="/terms.html">terms</a>
+        <span class="dot">·</span>
+        <a href="https://store.steampowered.com/app/4883800/" target="_blank" rel="noopener">Steam</a>
+        <span class="dot">·</span>
+        <a href="mailto:hello@loadbearing.games">contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
