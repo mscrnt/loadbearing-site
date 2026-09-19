@@ -2,7 +2,7 @@
 #
 # Allow everything; nothing here is private. AI training crawlers blocked
 # (preserves the marketing copy as differentiated), AI live-search allowed
-# so answer engines can cite back to loadbearing.games.
+# so answer engines can cite back to lb.loadbearing.games.
 
 User-agent: *
 Allow: /
@@ -45,4 +45,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://loadbearing.games/sitemap.xml
+Sitemap: https://lb.loadbearing.games/sitemap.xml

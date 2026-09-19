@@ -3,7 +3,7 @@
 Marketing landing page for **Load Bearing** — the satirical incremental clicker
 in development at [mscrnt/loadbearing](https://github.com/mscrnt/loadbearing).
 
-Lives at https://loadbearing.games — Cloudflare Pages, custom domain on the
+Lives at https://lb.loadbearing.games — Cloudflare Pages, custom domain on the
 mscrnt CF account, auto-deploys from `main`.
 
 ## Stack
@@ -22,8 +22,9 @@ python3 -m http.server 8000
 ## Deploy
 
 Push to `main` → Cloudflare Pages picks it up. The CF Pages project name is
-`loadbearing-site`; the custom domain `loadbearing.games` is attached to the
-production branch.
+`loadbearing-site`; the custom domain `lb.loadbearing.games` is attached to the
+production branch. The bare `loadbearing.games` is the label landing page
+(repo `loadbearing-games`), which links here.
 
 ## Files
 
